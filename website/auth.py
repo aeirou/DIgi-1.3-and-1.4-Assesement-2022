@@ -2,6 +2,6 @@
 
 from flask import Flask
 
-auth = Flask('auth',__name__)
+app = Flask(__name__)
 
 
