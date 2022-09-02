@@ -52,12 +52,14 @@ body, html {
 .body {
   margin-left: 5%;
   margin-right: 5%;
+  border-style: double;
   height: 100%;
   background-color: rgb(174, 159, 128);
+  
   }
-h1 {
+.body h1 {
     color: blue;
   }
-p {
+.body p {
     color: red;
   }
