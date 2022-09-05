@@ -1,10 +1,10 @@
 #the routes - where the visitor can go into
 
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, request, url_for
 
-app = Flask(__name__)
+views = Blueprint('views', __name__) #Blueprint is not an actual application - needs to be registered
 
-@app.route('/', methods=['GET', 'POST'])
+@views.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         title = request.form.get('title')
