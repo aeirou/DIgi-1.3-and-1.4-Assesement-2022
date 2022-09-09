@@ -1,7 +1,7 @@
 #the routes - where the visitor can go into
-
 from flask import Blueprint, render_template, redirect, request, url_for, flash
-
+from .models import Lender
+from . import db
 views = Blueprint('views', __name__) #Blueprint is not an actual application - needs to be registered
 lend = Blueprint('lend', __name__)
 
@@ -30,8 +30,14 @@ def lend():
             flash('Please try again.', category='error') #flash is a message that pops up when an error occours
         elif len(isbn) > 17:
             flash('Please try again', category='error')
+        elif isbn != int:
+            flash('ISBN not valid, please try again.', category='error')
         else:
-            return
+            lender = Lender(title=title, author=author, year_pub=year_pub, isbn=isbn)
+            db.session.add(lender)
+            db.session.commit()
+
+   
     return render_template('lend.html')
   
 # @app.route('/home')
