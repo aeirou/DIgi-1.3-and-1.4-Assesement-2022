@@ -1,4 +1,5 @@
 #this is where the database is stored - tables, info   
+from email.policy import default
 from time import timezone
 from . import db 
 from datetime import datetime
@@ -24,11 +25,12 @@ class Book(db.Model): #the whole table
       nullable=False,
       unique=False
     ) 
-    year_published = db.Column( #the year the books were published
-      db.DateTime,
-      nullable=False,
-      unique=False
-    )
+    # year_published = db.Column( #the year the books were published
+    #   db.DateTime,
+    #   nullable=True,
+    #   unique=False,
+    #   default= datetime.utcnow
+    # )
     isbn = db.Column( #unqiue id at the back of the book
       db.Integer,
       nullable = False,
@@ -69,7 +71,7 @@ class Borrower(db.Model):
     )
     borrower_id = db.relationship(
       "Borrowed_Books",
-      backref='borrowed_books', #connects to the table of the foreign key (borrowed_books)
+      backref='borrower', #connects to the table of the foreign key (borrowed_books)
       lazy=True
     )
 
@@ -102,36 +104,36 @@ class Borrowed_Books(db.Model):
       db.ForeignKey('book.id')
     )
 
-class Lender(db.Model):
+# class Lender(db.Model):
   
-    __name__ = 'lender'
+#     __name__ = 'lender'
 
-    id = db.Column( #the table columns #the primary key of the table
-        db.Integer,
-        primary_key=True
-      ) 
-    title = db.Column( #title of the books
-        db.String(255),
-        nullable=False,
-        unique=False
-      )
-    author = db.Column( #the author of the book
-        db.String(225),
-        nullable=False,
-        unique=False
-      ) 
-    year_published = db.Column( #the year the books were published
-        db.DateTime,
-        nullable=False,
-        unique=False
-      )
-    isbn = db.Column( #unqiue id at the back of the book
-        db.Integer,
-        nullable = False,
-        unique=True
-      )
-    book_id = db.relationship(
-        "Borrowed_Books",
-        backref='borrowed_books', #connects to the table of the foreign key (borrowed_books)
-        lazy=True
-      )
+#     id = db.Column( #the table columns #the primary key of the table
+#         db.Integer,
+#         primary_key=True
+#       ) 
+#     title = db.Column( #title of the books
+#         db.String(255),
+#         nullable=False,
+#         unique=False
+#       )
+#     author = db.Column( #the author of the book
+#         db.String(225),
+#         nullable=False,
+#         unique=False
+#       ) 
+#     year_published = db.Column( #the year the books were published
+#         db.DateTime,
+#         nullable=False,
+#         unique=False
+#       )
+#     isbn = db.Column( #unqiue id at the back of the book
+#         db.Integer,
+#         nullable = False,
+#         unique=True
+#       )
+#     book_id = db.relationship(
+#         "Borrowed_Books",
+#         backref='borrowed_books', #connects to the table of the foreign key (borrowed_books)
+#         lazy=True
+#       )

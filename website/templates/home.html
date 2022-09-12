@@ -23,10 +23,24 @@
         <input type="text" id="title" name="title" placeholder="enter"><br>
         <label for="author">Author of the book:</label><br>
         <input type="text" id="author" name="author"><br><br>
+        <label for="author">ISBN:</label><br>
+        <input type="text" id="author" name="author"><br>
         <input type="submit" value="Submit">
     </form>
     </div>
-
-    <p>Hello world!</p>
+<script>    
+    window.onscroll = function() {myFunction()};
+  
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+        
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+        navbar.classList.remove("sticky");
+        }
+    }
+</script>
 </body>
 </html>
