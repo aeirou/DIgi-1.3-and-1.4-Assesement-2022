@@ -8,16 +8,18 @@
     <title>books</title>
 </head>
 <body>
-<div>
+<div class="bookbody">
+    <div class="bookrows">
     {% if books %}<!-- #if theres books in the database, it will print it -->
-    <div class="books">
+    <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
-        <div>
+        <div class="single_books"> <!-- #individual books -->
             <h2>{{book.title}}</h2>
             <h3>{{book.author}}</h3>
             <h3>{{book.isbn}}</h3>
         </div>
     {%endfor%}
+    </div>
     </div>
 {%endif%}
 </div>

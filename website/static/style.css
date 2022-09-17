@@ -1,6 +1,8 @@
 body, html {
   height: 100%;
   margin: 0;
+}
+.homebody {
   background-image: url('/static/img/bodyimg.jpg');
   background-position: center;
   background-position: fixed;
@@ -94,12 +96,32 @@ body, html {
   padding-top: 60px;
 }
 /* ---------------------------------------- */
+.bookbody {
+  background-color: rgb(47, 47, 48);
+  margin: 2%;
+  border-radius: 10px;
+}
 .books {
-  padding: 3%;
-  justify-content: space-between;
+  padding: 5%;
+  max-lines: 1, 10;
+  justify-content: space-between; 
   display: flex;
   align-items: center;
 }
+.single_books {
+  padding: 2%;
+  width: 10%;
+  height: 10%;
+  background-color: rgb(61, 72, 76);
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 2px 2px 3px;
+}
+.single_books h2, h3 {
+  font-style: italic;
+  color: white;
+}
+
 .body {
   margin-left: 5%;
   margin-right: 5%;
