@@ -58,7 +58,7 @@ body, html {
 
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #231709;
 }
 
 #navbar a {
@@ -67,7 +67,7 @@ body, html {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
-  margin: 2px;
+  margin: 0.5%;
   text-decoration: none;
   font-size: 17px;
 }
@@ -77,23 +77,20 @@ body, html {
   color: black;
 }
 
-#navbar a.active {
-  color: white;
+#navbar a.home {
+  float: left;
+  margin-left: 10%;
 }
-
-.content {
-  padding: 16px;
-  margin-left: 2px;
+#navbar .nav_right {
+  margin-right: 10%;
 }
-
+#nav_bar a.nav_book {
+  margin-left: 10%;
+}
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 60px;
 }
 /* ---------------------------------------- */
 .bookbody {
