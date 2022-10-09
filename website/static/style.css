@@ -2,12 +2,7 @@ body, html {
   height: 100%;
   margin: 0;
 }
-.homebody {
-  background-image: url('/static/img/bodyimg.jpg');
-  background-position: center;
-  background-position: fixed;
-  background-size: cover;
-}
+
 .frontpage {
   background-image: url('/static/img/frontpage.jpg');
   height: 100%;
@@ -16,39 +11,6 @@ body, html {
   background-position: fixed;
   background-size: cover;
   }
-.frontpage h1 {
-  padding-top: 17%;
-  margin: 0;
-  text-shadow: 1px 1px 4px black;
-  color: cornsilk;
-  font-size: 70px;
-}
-.frontpage sub {
-  text-shadow: 1px 1px 2px black;
-  font-size: 15px;
-  color: white;
-}
-.frontpage button, a{
-  margin-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: transparent;
-  border-radius: 4px;
-  border-color: gray;
-  font-size: 14 px;
-  text-decoration: none;
-  text-shadow: 1px 1px 7px black;
-  color: black;
-}
-.frontpage .buttonbox :hover {
-  background-color: aliceblue;
-  text-decoration: none;
-}
-.frontpage h1, button, sub {
-  margin-left: 10%;
-}
 /* ---------------------------------------- */
 .header {
   background-color: #f1f1f1;
@@ -56,48 +18,42 @@ body, html {
   text-align: center;
 }
 
-#navbar {
+#navbar {  
   overflow: hidden;
-  background-color: transparent ;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%; 
 }
 
-#navbar a {
+.nav_right a  {
   float: right;
   display: block;
   color: #f2f2f2;
+  border-radius: 5px;
   text-align: center;
   padding: 14px 16px;
   margin: 0.5%;
-  margin-top: 1%;
+  margin-top: 1.25%;
   text-decoration: none;
   font-size: 17px;
+  text-shadow: 1px 1px 7px black;
 }
 
-#navbar a:hover {
-  color: black;
+.nav_right a:hover {
+  background-color: #c3a68b;
 }
-#navbar img {
+#navbar .logo {
   margin-left: 2%;
   margin-top: 1%;
   margin-bottom: 1%;
   float: left;
 }
-#navbar h6 {
-  margin-left: 20px;
-}
-#navbar a.home {
-  float: left;
-  margin-left: 2%;
-}
 #navbar .nav_right {
   margin-right: 10%;
 }
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-/* ---------------------------------------- */
+/* --------------------/books-------------------- */ 
+
 .bookbody {
   background-color: rgb(47, 47, 48);
   margin: 2%;
@@ -123,8 +79,9 @@ body, html {
   font-style: italic;
   color: white;
 }
+/* --------------------/books-------------------- */ 
 
-.body {
+.search {
   margin-left: 5%;
   margin-right: 5%;
   border-style: double;
@@ -132,9 +89,9 @@ body, html {
   background-color: rgb(174, 159, 128);
   
   }
-.body h1 {
+.search h1 {
     color: blue;
   }
-.body p {
+.search p {
     color: red;
   }

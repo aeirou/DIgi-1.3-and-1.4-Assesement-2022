@@ -1,32 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css"> 
-    <title>Library</title>
-</head>
+{% extends "base.html" %} <!-- connects the content in base.html to this file -->
+
+{% block title %} Library {% endblock %} <!-- adds title to the page -->
+
+{% block content%} <!-- prints the content inside of it -->
+
 <body class="homebody">
-<div id="navbar">
-    <img src="/static/img/booklogo4.svg" alt="booklogo" />
-    <div class="nav_right">
-    <a class="nav_lend_book" href="javascript:void(0)">Lend a Book</a>
-    <a class="nav_book" href="javascript:void(0)">Books</a>
-    </div>
-    <a class="home" href="javascript:void(0)" href="/books">Home</a> 
-    <br>
-    <p>The Grand Library</p>
+<div class="frontpage">
+    <div class="text">
+        <h1>The Grand Library.</h1>
+        <sub>Click the 'Search' box or scroll down to search for a book/s.</sub>
+        <div class="buttonbox">
+        <button><a href="#search">Search</a></button>
+        </div>
     </div>
 </div> 
-<div class="frontpage">
-    <h1>Welcome to The Grand Library.</h1>
-    <sub>Click the 'Search' box or scroll down to search for a book/s.</sub>
-    <div class="buttonbox">
-    <button><a href="#search">Search</a></button>
-    </div>
-</div>
-<div class="body" id="search">
+<div class="search" id="search">
     <h1>Welcome to my Library.</h1>
     <form method="POST">
         <label for="title">Title:</label><br>
@@ -38,20 +26,6 @@
         <input type="submit" value="Submit">
     </form>
 </div>
-
-<script>    
-    window.onscroll = function() {myFunction()};
-  
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-        
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-        navbar.classList.remove("sticky");
-        }
-    }
-</script>
 </body>
-</html>
+
+{% endblock %}

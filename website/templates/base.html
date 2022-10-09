@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css"> 
+    <title>{% block title %}{% endblock %}</title>
+</head>
+</head>
+<body>
+<div id="navbar">
+    <div class="logo">
+        <a href="{{ url_for('views.home') }}">
+            <img src="/static/img/booklogo4.svg" alt="booklogo" />
+        </a>
+    </div>
+    <div class="nav_right">
+        <a class="nav_lend_book" href="/lend">Lend a Book</a>
+        <a class="nav_book" href="/books">Books</a>
+        <a class="nav_home" href="/">Home</a> 
+    </div>
+    <br>
+</div>
+{% block content %} {% endblock %}
+
+</body>
+</html>
