@@ -5,27 +5,32 @@
 {% block content%} <!-- prints the content inside of it -->
 
 <body class="homebody">
+
+
 <div class="frontpage">
     <div class="text">
-        <h1>The Grand Library.</h1>
-        <sub>Click the 'Search' box or scroll down to search for a book/s.</sub>
-        <div class="buttonbox">
-        <button><a href="#search">Search</a></button>
-        </div>
+        <a class="mainheading" href="/books">
+            <h1>The Grand Library.</h1>
+        </a>
     </div>
 </div> 
-<div class="search" id="search">
-    <h1>Welcome to my Library.</h1>
-    <form method="POST">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" placeholder="enter"><br>
-        <label for="author">Author of the book:</label><br>
-        <input type="text" id="author" name="author"><br><br>
-        <label for="author">ISBN:</label><br>
-        <input type="text" id="author" name="author"><br>
-        <input type="submit" value="Submit">
-    </form>
-</div>
+
+<footer>
+    <div class="search" id="search">
+        <h1>Looking for books? Search for a book title, author or ISBN.</h1>
+        <div class="form">
+            <form method="POST">
+                <label for="title"></label><br>
+                <input type="search" id="term" name="search" style="width: 225px;" value="" placeholder="'Animal Farm' , 'George Orwell' etc..."><br>
+                <button type="submit"  id="button_addon">
+                  </button>     
+                <a class="lendbutt" href="/lend">
+                    <p>Can't find what your looking for? Lend a book!</p>
+                </a>
+            </form>
+        </div>
+    </div>
+</footer>
 </body>
 
 {% endblock %}

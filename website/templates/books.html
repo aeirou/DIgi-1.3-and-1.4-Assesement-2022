@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css"> 
-    <title>books</title>
-</head>
+{% extends "base.html" %} <!-- connects the content in base.html to this file -->
+
+{% block title %} Books {% endblock %} <!-- adds title to the page -->
+
+{% block content%} <!-- prints the content inside of it -->
 <body>
 <div class="bookbody">
     <div class="bookrows">
@@ -24,4 +20,5 @@
 {%endif%}
 </div>
 </body>
-</html>
+
+{% endblock %}

@@ -1,6 +1,4 @@
 #the routes - where the visitor can go into
-from crypt import methods
-from re import template
 from flask import Blueprint, render_template, redirect, request, url_for, flash
 from .models import Book
 from . import db
@@ -10,13 +8,9 @@ views = Blueprint('views', __name__) #Blueprint is not an actual application - n
 @views.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        title = request.form.get('title')
-        author = request.form.get('author')
+      term = request.form.get('search') #takes what the person is searching
 
-        if title != str or author != str:
-            return redirect(url_for('error'))
-        else:
-            return redirect(url_for('search'))
+      return redirect(url_for('views.search', searchterm=term)) #redirects them to the page to see what they searched for
 
     return render_template('home.html')
 
@@ -27,13 +21,6 @@ def lend():
         author = request.form.get('author')
         isbn = request.form.get('isbn')
 
-        # if len(isbn) < 17:
-        #     flash('Please try again.', category='error') #flash is a message that pops up when an error occours
-        # elif len(isbn) > 17:
-        #     flash('Please try again', category='error')
-        # elif isbn != int:
-        #     flash('ISBN not valid, please try again.', category='error')
-        
         book = Book(title=title, author=author, isbn=isbn)
         db.session.add(book)
         db.session.commit()
@@ -41,9 +28,19 @@ def lend():
 
     return render_template('lend.html')
 
+@views.route('/search/<path:searchterm>')
+def search(searchterm):
+  term = "%{}%".format(searchterm)
+
+  search = Book.query.filter((Book.title.like(term)) | (Book.author.like(term)) | (Book.isbn.like(term))).all()
+  
+  
+  return render_template('search.html', results=search, searchterm=searchterm)
+
+
 @views.route('/books')
 def books():
-    books = Book.query.all() #orders the books by its title (alphabetical)
+    books = Book.query.limit(4).all() #orders the books by its title (alphabetical)
     return render_template('books.html', books=books)
   
 # @app.route('/home')

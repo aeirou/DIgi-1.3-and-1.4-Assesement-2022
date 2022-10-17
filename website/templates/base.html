@@ -9,19 +9,19 @@
 </head>
 </head>
 <body>
-<div id="navbar">
-    <div class="logo">
-        <a href="{{ url_for('views.home') }}">
-            <img src="/static/img/booklogo4.svg" alt="booklogo" />
-        </a>
+<div class="navbar">
+    <div class="nav_left">
+        <a class="nav_book" href="/">Home</a>
+        <a class="nav_lend_book" href="/books">Books</a>
     </div>
     <div class="nav_right">
+        <a class="nav_lend_book" href="/about">About</a>
         <a class="nav_lend_book" href="/lend">Lend a Book</a>
-        <a class="nav_book" href="/books">Books</a>
-        <a class="nav_home" href="/">Home</a> 
     </div>
     <br>
 </div>
+
+
 {% block content %} {% endblock %}
 
 </body>

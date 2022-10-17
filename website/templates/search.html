@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-</head>
+{% extends "base.html" %} <!-- connects the content in base.html to this file -->
+
+{% block title %} Searched for {{searchterm}} {% endblock %} <!-- adds title to the page -->
+
+{% block content%} <!-- prints the content inside of it -->
+
 <body>
-    <h1>Welcome</h1>
-    <a href="/">Search for more</a>
+  <div class="3" >
+      {%if results%}
+        <h2 class="text-light px-4">Here's what we've found for '{{searchterm}}'</h2>
+        {% for result in results %}
+        <div class="">
+          <div >
+            <h5 class="">{{ result.title }}</h5>
+            <h6 class="">{{ result.author }}</h6>
+          </div>
+        </div>
+      {% endfor %}
+      {%else%}
+        <h1 class="text-light">No results for '{{searchterm}}'</h1>
+        <h3 class="text-primary">Can't find it, lend it!</h3>
+      {%endif%}
+    </div>
 </body>
-</html>
+
+{% endblock %}

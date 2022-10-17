@@ -1,7 +1,9 @@
 body, html {
   height: 100%;
+  width: 100%;
   margin: 0;
 }
+/* --------------------frontpage-------------------- */
 
 .frontpage {
   background-image: url('/static/img/frontpage.jpg');
@@ -11,47 +13,80 @@ body, html {
   background-position: fixed;
   background-size: cover;
   }
-/* ---------------------------------------- */
-.header {
-  background-color: #f1f1f1;
-  padding: 30px;
+.frontpage .text {
+  padding-top: 20%;
   text-align: center;
 }
+.text h1 , a {
+  color: #007c97 ;
+  font-size: 100px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+}
+/* --------------------frontpage-------------------- */
 
-#navbar {  
+/* --------------------search-------------------- */
+.search {
+  padding: 10%;
+  background-color: #007c97;
+  
+  }
+.search h1 {
+    color: white;
+    text-align: center;
+  }
+.search .form {
+    text-align: center;
+  }
+.search label {
+  font-size: 20px;
+}
+.search a {
+  color: white ;
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+}
+/* --------------------search-------------------- */
+
+
+/* --------------------nav-------------------- */
+.navbar {  
   overflow: hidden;
   background-color: transparent;
   position: fixed;
   top: 0;
   width: 100%; 
 }
-
-.nav_right a  {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  border-radius: 5px;
-  text-align: center;
-  padding: 14px 16px;
-  margin: 0.5%;
-  margin-top: 1.25%;
-  text-decoration: none;
+.navbar a {
+  color: #004759;
   font-size: 17px;
-  text-shadow: 1px 1px 7px black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-
-.nav_right a:hover {
-  background-color: #c3a68b;
+.nav_left {
+  margin-left: 10%;
 }
-#navbar .logo {
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  float: left;
-}
-#navbar .nav_right {
+.nav_right {
   margin-right: 10%;
 }
+.nav_left a{
+  float: left;
+  display: block;
+  margin: 2%;
+  text-decoration: none
+}
+.nav_right a{
+  float: right;
+  display: block;
+  margin: 2%;
+  text-decoration: none;
+}
+
+.navbat a:hover {
+  background-color: #c3a68b;
+}
+/* --------------------nav-------------------- */
+
 /* --------------------/books-------------------- */ 
 
 .bookbody {
@@ -81,17 +116,14 @@ body, html {
 }
 /* --------------------/books-------------------- */ 
 
-.search {
-  margin-left: 5%;
-  margin-right: 5%;
-  border-style: double;
-  height: 100%;
-  background-color: rgb(174, 159, 128);
-  
-  }
-.search h1 {
-    color: blue;
-  }
-.search p {
-    color: red;
-  }
+/* --------------------lendf-------------------- */ 
+.lendf {
+  margin-top: 10%;
+}
+
+
+
+/* --------------------lendf-------------------- */ 
+
+
+
