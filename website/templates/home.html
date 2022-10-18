@@ -15,6 +15,22 @@
     </div>
 </div> 
 
+<div class="bookbody">
+    <div class="bookrows">
+    {% if books %}<!-- #if theres books in the database, it will print it -->
+    <div class="books"> <!-- #the box of the books -->
+        {%for book in books%}
+        <div class="single_books"> <!-- #individual books -->
+            <h2>{{book.title}}</h2>
+            <h3>{{book.author}}</h3>
+            <h3>{{book.isbn}}</h3>
+        </div>
+    {%endfor%}
+    </div>
+    </div>
+{%endif%}
+</div>
+
 <footer>
     <div class="search" id="search">
         <h1>Looking for books? Search for a book title, author or ISBN.</h1>

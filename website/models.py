@@ -41,7 +41,7 @@ class Book(db.Model): #the whole table
       backref='borrowed_books', #connects to the table of the foreign key (borrowed_books)
       lazy=True
     )
-class Borrower(db.Model):
+class Borrower(db.Model): #for when borrowing the books
 
     __name__ = 'borrower'
 

@@ -28,7 +28,7 @@ body, html {
 /* --------------------search-------------------- */
 .search {
   padding: 10%;
-  background-color: #007c97;
+  background-color:#003a49;
   
   }
 .search h1 {
@@ -90,9 +90,7 @@ body, html {
 /* --------------------/books-------------------- */ 
 
 .bookbody {
-  background-color: rgb(47, 47, 48);
-  margin: 2%;
-  border-radius: 10px;
+  background-color: #007c9b;
 }
 .books {
   padding: 5%;
@@ -105,19 +103,19 @@ body, html {
   padding: 2%;
   width: 10%;
   height: 10%;
-  background-color: rgb(61, 72, 76);
+  background-color: white;
   border-radius: 4px;
   text-align: center;
   box-shadow: 2px 2px 3px;
 }
 .single_books h2, h3 {
   font-style: italic;
-  color: white;
+  color: #004759;
 }
 /* --------------------/books-------------------- */ 
 
 /* --------------------lendf-------------------- */ 
-.lendf {
+.lend_form {
   margin-top: 10%;
 }
 
@@ -125,5 +123,11 @@ body, html {
 
 /* --------------------lendf-------------------- */ 
 
+/* --------------------borrow_form-------------------- */ 
+.borrow_form {
+  margin-top: 10%;
+}
+
+/* --------------------borrow_form-------------------- */ 
 
 

@@ -1,4 +1,5 @@
 #the routes - where the visitor can go into
+from curses import longname
 from flask import Blueprint, render_template, redirect, request, url_for, flash
 from .models import Book
 from . import db
@@ -11,8 +12,10 @@ def home():
       term = request.form.get('search') #takes what the person is searching
 
       return redirect(url_for('views.search', searchterm=term)) #redirects them to the page to see what they searched for
+    
+    books = Book.query.limit(4).all()
 
-    return render_template('home.html')
+    return render_template('home.html' , books=books)
 
 @views.route('/lend', methods=['GET', 'POST'])
 def lend():
@@ -42,6 +45,17 @@ def search(searchterm):
 def books():
     books = Book.query.limit(4).all() #orders the books by its title (alphabetical)
     return render_template('books.html', books=books)
+
+@views.route('/borrow_book' ,  methods=['GET', 'POST'])
+def borrow_book():
+  if request.method == 'POST':
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        email = request.form.get('email')
+        phn_num = request.form.get('phn_num')
+
+  return render_template('borrow_book.html')
+
   
 # @app.route('/home')
 # def search():
