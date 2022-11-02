@@ -10,7 +10,7 @@
 <div class="frontpage">
     <div class="text">
         <a class="mainheading" href="/books">
-            <h1>The Grand Library.</h1>
+            <h1>The Grand Library</h1>
         </a>
     </div>
 </div> 
@@ -21,9 +21,17 @@
     <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
         <div class="single_books"> <!-- #individual books -->
-            <h2>{{book.title}}</h2>
-            <h3>{{book.author}}</h3>
-            <h3>{{book.isbn}}</h3>
+            <a href="/borrow_book">
+                <h2>{{book.title}}</h2>
+                <h3>{{book.author}}</h3>
+                <h3>{{book.isbn}}</h3>
+                <a href="/delete">
+                    <sub>Delete</sub>
+                </a>
+                <a href="{{url_for('views.edit', book_id=book.id)}}">
+                    <sub>edit</sub>
+                </a>
+            </a>
         </div>
     {%endfor%}
     </div>

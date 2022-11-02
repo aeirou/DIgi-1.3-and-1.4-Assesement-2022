@@ -1,5 +1,4 @@
 #this is where the database is stored - tables, info   
-from email.policy import default
 from time import timezone
 from . import db 
 from datetime import datetime
@@ -13,8 +12,7 @@ class Book(db.Model): #the whole table
     id = db.Column( #the table columns #the primary key of the table
       db.Integer,
       primary_key=True
-    ) 
-
+    )
     title = db.Column( #title of the books
       db.String(255),
       nullable=False,

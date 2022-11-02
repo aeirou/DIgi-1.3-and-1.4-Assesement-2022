@@ -3,22 +3,34 @@
 {% block title %} Library - Books {% endblock %} <!-- adds title to the page -->
 
 {% block content%} <!-- prints the content inside of it -->
-<body>
-<div class="bookbody">
+<body class="bookbody">
+<footer>
+    <div class="book_frontimage">    
+        <h1>Books</h1>
+    </div>
+</footer>
     <div class="bookrows">
     {% if books %}<!-- #if theres books in the database, it will print it -->
     <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
-        <div class="single_books"> <!-- #individual books -->
-            <h2>{{book.title}}</h2>
-            <h3>{{book.author}}</h3>
-            <h3>{{book.isbn}}</h3>
-        </div>
+                <div class="single_books"> <!-- #individual books -->
+                    <a href="/borrow_book">
+                        <h3>{{book.id}}</h3>
+                        <h2>{{book.title}}</h2>
+                        <h3>{{book.author}}</h3>
+                        <h3>{{book.isbn}}</h3>
+                    </a>
+                        <a href="{{url_for('views.delete')}}">
+                            <sub>delete</sub>
+                        </a> <br>
+                        <a href="{{url_for('views.edit', book_id=book.id)}}">
+                            <sub>edit</sub>
+                        </a>
+                </div>
     {%endfor%}
     </div>
     </div>
 {%endif%}
-</div>
 </body>
 
 {% endblock %}

@@ -19,13 +19,13 @@ def create_app():
     from .models import Book, Borrower, Borrowed_Books #imports the database
 
     app.register_blueprint(views, url_prefix='/')
-    create_database(app)
- 
+
+    with app.app_context():    
+            db.create_all()
+            
     return app
 
-def create_database(app): #creates the database if the database doesn't already exists 
-    if not path.exists('website/' + DB_NAME):
-        db.create_all(app=app) #tells flask which app creates the database    
-        print('Database created!')
+
+
 
     

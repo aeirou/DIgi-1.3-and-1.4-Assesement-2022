@@ -16,11 +16,14 @@ body, html {
 .frontpage .text {
   padding-top: 20%;
   text-align: center;
+  text-decoration: none;
 }
-.text h1 , a {
+.text h1  {
   color: #007c97 ;
   font-size: 100px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.text a { 
   text-decoration: none;
 }
 /* --------------------frontpage-------------------- */
@@ -53,14 +56,15 @@ body, html {
 /* --------------------nav-------------------- */
 .navbar {  
   overflow: hidden;
-  background-color: transparent;
+  background-color: #003a49;
   position: fixed;
   top: 0;
   width: 100%; 
+  border-radius: 2px 2px 2px;
 }
 .navbar a {
-  color: #004759;
-  font-size: 17px;
+  color: white;
+  font-size: 15px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .nav_left {
@@ -81,16 +85,25 @@ body, html {
   margin: 2%;
   text-decoration: none;
 }
-
-.navbat a:hover {
-  background-color: #c3a68b;
-}
 /* --------------------nav-------------------- */
 
 /* --------------------/books-------------------- */ 
-
 .bookbody {
-  background-color: #007c9b;
+  background-color: #004e61;
+}
+.book_frontimage {
+  background-image: url('/static/img/bookfooter.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: fixed;
+  background-size: cover;
+  padding: 7%;
+}
+.book_frontimage h1 {
+  font-size: 100px;
+  text-align: center;
+  color: #007c97;
 }
 .books {
   padding: 5%;
@@ -98,8 +111,9 @@ body, html {
   justify-content: space-between; 
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
-.single_books {
+.single_books  {
   padding: 2%;
   width: 10%;
   height: 10%;
@@ -111,6 +125,10 @@ body, html {
 .single_books h2, h3 {
   font-style: italic;
   color: #004759;
+  text-decoration: none;
+}
+.single_books a {
+  text-decoration: none;
 }
 /* --------------------/books-------------------- */ 
 
