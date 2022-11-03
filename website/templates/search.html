@@ -3,20 +3,18 @@
 {% block title %} Library - Searched {{searchterm}} {% endblock %} <!-- adds title to the page -->
 
 {% block content%} <!-- prints the content inside of it -->
-
 <body>
   <div class="3" >
       {%if results%}
-        <h2 class="text-light px-4">Here's what we've found for '{{searchterm}}'</h2>
+        <h2 class="text-light px-4">Results for '{{searchterm}}'</h2>
         {% for result in results %}
         <div class="">
-          <div >
-            <h5 class="">{{ result.title }}</h5>
-            <h6 class="">{{ result.author }}</h6>
-            <h6 class="">{{ result.isbn }}</h6>
-            <h6 class="">{{ result.id }}</h6>
-
-
+          <div class="single_books" >
+            <h3>{{ result.id }}</h3>
+            <h2>{{ result.title }}</h2>
+            <h3>{{ result.author }}</h3>
+            <h3>{{ result.isbn }}</h3>
+            <h4>{{ result.desc }}</h4>
           </div>
         </div>
       {% endfor %}

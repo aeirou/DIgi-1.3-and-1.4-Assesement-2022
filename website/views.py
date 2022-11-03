@@ -1,5 +1,6 @@
 #the routes - where the visitor can go into
 from flask import Blueprint, render_template, redirect, request, url_for, flash
+from sqlalchemy import desc
 from . import db
 from .models import Book, Borrowed_Books, Borrower
 
@@ -13,8 +14,6 @@ def home():
     term = request.form.get('search') #takes what the person is searching
 
     return redirect(url_for('views.search', searchterm=term)) #redirects them to the page to see what they searched for
-  
-   
 
   return render_template('home.html' , books=books)
 
@@ -24,8 +23,9 @@ def lend():
         title = request.form.get('title')
         author = request.form.get('author')
         isbn = request.form.get('isbn')
+        desc = request.form.get('desc')
 
-        book = Book(title=title, author=author, isbn=isbn)
+        book = Book(title=title, author=author, isbn=isbn, desc=desc)
         db.session.add(book)
         db.session.commit()
         return redirect(url_for('views.books')) #redirects to the book page
@@ -36,7 +36,7 @@ def lend():
 def search(searchterm):
   term = "%{}%".format(searchterm)
 
-  search = Book.query.filter(Book.title.like(term)) | (Book.author.like(term)) | (Book.isbn.like(term)).all()
+  search = Book.query.filter((Book.title.like(term)) | (Book.author.like(term)) | (Book.isbn.like(term))).all()
   
   return render_template('search.html', results=search, searchterm=searchterm)
 
@@ -73,7 +73,7 @@ def delete():
       author = request.form.get('author')
       isbn = request.form.get('isbn')
 
-      book = Book.query.filter_by(title = title).filter_by(author = author).filter_by(isbn = isbn).first()
+      book = Book.query.filter_by(id=Book.id).first()
       db.session.delete(book)
       db.session.commit()
       return redirect(url_for('views.books')) #redirects to the book page
@@ -89,13 +89,16 @@ def edit(book_id):
       title = request.form.get('title')
       author = request.form.get('author')
       isbn = request.form.get('isbn')
+      desc = request.form.get('desc')
 
       book.title = title 
       book.author = author
       book.isbn = isbn
+      book.desc = desc
 
       db.session.add(book)
       db.session.commit()
+      return redirect(url_for('views.books')) #redirects to the book page
 
   return render_template('edit.html', book=book)
 

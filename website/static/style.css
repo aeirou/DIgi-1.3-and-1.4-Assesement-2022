@@ -2,24 +2,26 @@ body, html {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-color: #004759;
 }
 /* --------------------frontpage-------------------- */
 
 .frontpage {
-  background-image: url('/static/img/frontpage.jpg');
+  background-image: linear-gradient(rgba(4,9,5,0.7), rgba(4,9,5,0.7)),url('/static/img/frontpage.jpg');
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-position: fixed;
   background-size: cover;
   }
+
 .frontpage .text {
   padding-top: 20%;
   text-align: center;
   text-decoration: none;
 }
 .text h1  {
-  color: #007c97 ;
+  color:  rgb(235, 228, 228);
   font-size: 100px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -50,13 +52,29 @@ body, html {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: none;
 }
+input[type=search]:focus {
+  width: 100%;
+}
+input[type=search] {
+  width: 200px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('/static/img/searchicon.svg');
+  background-position: 5px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
 /* --------------------search-------------------- */
 
 
 /* --------------------nav-------------------- */
 .navbar {  
   overflow: hidden;
-  background-color: #003a49;
+  background-color: transparent;
   position: fixed;
   top: 0;
   width: 100%; 
@@ -89,10 +107,10 @@ body, html {
 
 /* --------------------/books-------------------- */ 
 .bookbody {
-  background-color: #004e61;
+  background-color: #004759;
 }
 .book_frontimage {
-  background-image: url('/static/img/bookfooter.jpg');
+  background-image: linear-gradient(rgba(4,9,5,0.7), rgba(4,9,5,0.7)),url('/static/img/bookfooter.jpg');
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -103,7 +121,7 @@ body, html {
 .book_frontimage h1 {
   font-size: 100px;
   text-align: center;
-  color: #007c97;
+  color: rgb(235, 228, 228);
 }
 .books {
   padding: 5%;
@@ -148,4 +166,13 @@ body, html {
 
 /* --------------------borrow_form-------------------- */ 
 
+/* --------------------delete-------------------- */ 
+.delete_form {
+  margin-left: 45%;
+  margin-top: 10%;
+}
+/* --------------------delete-------------------- */ 
 
+/* --------------------edit-------------------- */ 
+
+/* --------------------edit-------------------- */ 

@@ -34,6 +34,11 @@ class Book(db.Model): #the whole table
       nullable = False,
       unique=True
     )
+    desc = db.Column( #the description of the book
+      db.String(225),
+      nullable=False,
+      unique=False
+    ) 
     book_id = db.relationship(
       "Borrowed_Books",
       backref='borrowed_books', #connects to the table of the foreign key (borrowed_books)

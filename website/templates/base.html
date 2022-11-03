@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css"> 
+    <link rel="stylesheet" href="/static/style.css"> 
     <title>{% block title %}{% endblock %}</title>
 </head>
 </head>
 <body>
 <div class="navbar">
     <div class="nav_left">
-        <a class="nav_book" href="/">Home</a>
-        <a class="nav_lend_book" href="/books">Books</a>
-    </div>
+        <a class="nav_book" href="{{ url_for('views.home') }}">Home</a>
+        <a class="nav_lend_book" href="{{ url_for('views.books') }}">Books</a>
+    </div> <br>
+    <a href="{{ url_for('views.home') }}">
+        <img src="/website/static/img/logowithoutbackground.svg">
+    </a> <br>
     <div class="nav_right">
-        <a class="nav_lend_book" href="/about">About</a>
-        <a class="nav_lend_book" href="/lend">Lend a Book</a>
+        <a class="nav_lend_book" href="{{ url_for('views.lend') }}">Lend a Book</a>
     </div>
     <br>
 </div>

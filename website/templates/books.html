@@ -19,12 +19,13 @@
                         <h2>{{book.title}}</h2>
                         <h3>{{book.author}}</h3>
                         <h3>{{book.isbn}}</h3>
+                        <h5>{{book.desc}}</h5>
                     </a>
                         <a href="{{url_for('views.delete')}}">
-                            <sub>delete</sub>
+                            <sub>Delete</sub>
                         </a> <br>
                         <a href="{{url_for('views.edit', book_id=book.id)}}">
-                            <sub>edit</sub>
+                            <sub>Edit</sub>
                         </a>
                 </div>
     {%endfor%}
