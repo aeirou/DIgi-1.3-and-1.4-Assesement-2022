@@ -21,15 +21,13 @@
     <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
         <div class="single_books"> <!-- #individual books -->
-            <a href="/borrow_book">
-                <h3>{{book.id}}</h3>  
-                <h2>{{book.title}}</h2>
-                <h3>{{book.author}}</h3>
-                <h3>{{book.isbn}}</h3>
-                <h5>{{book.desc}}</h5>  
-                <a href="{{url_for('views.delete')}}">
-                    <sub>Delete</sub>
-                </a> <br>
+            <a href="{{url_for('views.borrow_book', booktitle=book.title)}}">
+                <h3 class="id">{{book.id}}</h3>
+                <h2 class="label">{{book.title}}</h2>
+                <h3 class="label">{{book.author}}</h3>
+                <h3 class="label">{{book.dop}}</h3>
+                <h3 class="label">{{book.isbn}}</h3>
+                <h4 class="desc">{{book.desc}}</h4>
                 <a href="{{url_for('views.edit', book_id=book.id)}}">
                     <sub>Edit</sub>
                 </a>
@@ -47,9 +45,7 @@
         <div class="form">
             <form method="POST">
                 <label for="title"></label><br>
-                <input type="search" id="term" name="search" value="" placeholder="Search"><br>
-                <button type="submit"  id="button_addon">
-                  </button>     
+                <input type="search" id="term" name="search" value="" placeholder="Search"><br>     
                 <a class="lendbutt" href="/lend">
                     <p>Can't find what your looking for? Lend a book!</p>
                 </a>

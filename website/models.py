@@ -23,12 +23,11 @@ class Book(db.Model): #the whole table
       nullable=False,
       unique=False
     ) 
-    # year_published = db.Column( #the year the books were published
-    #   db.DateTime,
-    #   nullable=True,
-    #   unique=False,
-    #   default= datetime.utcnow
-    # )
+    dop = db.Column( #the date it was published
+      db.Integer,
+      nullable=False,
+      unique=False
+    ) 
     isbn = db.Column( #unqiue id at the back of the book
       db.Integer,
       nullable = False,

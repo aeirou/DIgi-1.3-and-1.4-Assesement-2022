@@ -3,20 +3,58 @@
 {% block title %} Library - Lend {% endblock %} <!-- adds title to the page -->
 
 {% block content%} <!-- prints the content inside of it -->
-<body>
-    <div class="lend_form">
-        <form method="POST">
-            <label for="title">Title:</label><br>
-            <input type="title" id="title" name="title" placeholder="'Animal Farm'"><br>
-            <label for="author">Author of the book:</label><br>
-            <input type="author " id="author" name="author" placeholder="'George Orwell'"><br>
-            <label for="isbn">ISBN:</label><br>
-            <input type="isbn " id="isbn" name="isbn" maxlength="13" size="13" placeholder="'1122334455667'"><br>
-            <label for="isbn">Description:</label><br>
-            <input type="desc " id="desc" name="desc" ><br>
-            <input type="submit" value="Submit">
-        </form>
+<body class="lend">
+<div class="container">
+    <h1 style="color: rgb(235, 228, 228);">Lend a Book</h1>
+    <form method="POST">
+    <div class="row">
+        <div class="col-25">
+        <label for="title">Title:</label>
+        </div>
+        <div class="col-75">
+        <input type="text" id="title" name="title" placeholder="Animal Farm..">
+        </div>
     </div>
+    <div class="row"> <!-- row is each line: label and input -->
+        <div class="col-25"> <!-- col-25 is the label -->
+        <label for="author">Author:</label>
+        </div>
+        <div class="col-75">  <!-- col-75 is the input -->
+        <input type="text" id="author" name="author" placeholder="George Orwell..">
+        </div>
+    </div>
+    <div class="row"> <!-- row is each line: label and input -->
+        <div class="col-25"> <!-- col-25 is the label -->
+        <label for="dop">Date Published:</label>
+        </div>
+        <div class="col-75">  <!-- col-75 is the input -->
+        <input type="text" id="dop" name="dop" placeholder="1945..">
+        </div>
+    </div>
+    <div class="row"> 
+        <div class="col-25">
+        <label for="isbn">ISBN:</label>
+        </div>
+        <div class="col-75"> 
+        <input type="text" id="isbn" name="isbn" maxlength="13" placeholder="1122334455667..">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+        <label for="desc">Description (MAX 300 WORDS):</label>
+        </div>
+        <div class="col-75">
+        <textarea id="desc" name="desc" maxlength="300" placeholder="In the novella Animal Farm (1945) by George Orwell.." style="height:200px"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+</div>
+
+
 </body>
 
 {% endblock %}
