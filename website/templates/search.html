@@ -18,9 +18,6 @@
                       <h4 class="label">{{ result.isbn }}</h4>
                       <h5 class="desc">{{ result.desc }}</h5>
                     </a>
-                    <a href="{{url_for('views.delete')}}">
-                      <sub>Delete</sub>
-                    </a><br>
                     <a href="{{url_for('views.edit',book_id=result.id)}}">
                       <sub>Edit</sub>
                     </a>
@@ -31,7 +28,7 @@
       {% endfor %}
       {%else%}
       <div class="no-resldiv">
-        <h1 class="noresult">No results for '{{searchterm}}'</h1>
+        <h1 class="noresult">No results for ' {{searchterm}} '</h1>
         <h3 class="noresult"> Oops, looks like the book you have searched have already been borrowed or does not exist in our database. :(</h3>
         <a class="noresult" href="{{ url_for('views.lend') }}">Lend it!</a>
       </div>

@@ -3,14 +3,29 @@
 {% block title %} Library - Delete {% endblock %} <!-- adds title to the page -->
 
 {% block content%} <!-- prints the content inside of it -->
-<body>
-    <div class="delete_form">
+<body class="del">
+<div class="error" id="error">
+    {% if error %}
+    <p class=error><strong>{{ error }}</strong> 
+    {% endif %}
+</div>
+<div class="delete_form">
+    <div class="container_del">
         <form method="POST">
-            <label for="id" >id:</label><br>
-            <input type="id" id="id" name="id" placeholder="1"><br>
-            <input type="submit" value="Submit">
+            <div class="col-26">
+                <label for="unpublish">Type 'DELETE' to unpublish a book</label> <br>
+                <label for="unpublish" class="warn"> WARNING! THIS ACTION CANNOT BE UNDONE.</label>
+            </div> 
+            <br>
+            <div class="col-76"> 
+                <input type="text" id="delete" name="delete" maxlength="10" placeholder="DELETE" autocomplete="off" required>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </div>
+</div>
 </body>
 
 {% endblock %}

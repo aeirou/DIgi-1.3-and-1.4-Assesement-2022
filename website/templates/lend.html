@@ -12,7 +12,7 @@
         <label for="title">Title:</label>
         </div>
         <div class="col-75">
-        <input type="text" id="title" name="title" placeholder="Animal Farm..">
+        <input type="text" id="title" name="title" placeholder="Animal Farm.." autocomplete="off" required>
         </div>
     </div>
     <div class="row"> <!-- row is each line: label and input -->
@@ -20,7 +20,7 @@
         <label for="author">Author:</label>
         </div>
         <div class="col-75">  <!-- col-75 is the input -->
-        <input type="text" id="author" name="author" placeholder="George Orwell..">
+        <input type="text" id="author" name="author" placeholder="George Orwell.." autocomplete="off" required>
         </div>
     </div>
     <div class="row"> <!-- row is each line: label and input -->
@@ -28,7 +28,7 @@
         <label for="dop">Date Published:</label>
         </div>
         <div class="col-75">  <!-- col-75 is the input -->
-        <input type="text" id="dop" name="dop" placeholder="1945..">
+        <input type="text" id="dop" name="dop" placeholder="1945.." autocomplete="off" required>
         </div>
     </div>
     <div class="row"> 
@@ -36,15 +36,15 @@
         <label for="isbn">ISBN:</label>
         </div>
         <div class="col-75"> 
-        <input type="text" id="isbn" name="isbn" maxlength="13" placeholder="1122334455667..">
+        <input type="text" id="isbn" name="isbn" maxlength="13" placeholder="1122334455667.." autocomplete="off" required>
         </div>
     </div>
     <div class="row">
         <div class="col-25">
-        <label for="desc">Description (MAX 300 WORDS):</label>
+        <label for="desc">Description (MAX 1000 CHARACTERS):</label>
         </div>
         <div class="col-75">
-        <textarea id="desc" name="desc" maxlength="300" placeholder="In the novella Animal Farm (1945) by George Orwell.." style="height:200px"></textarea>
+        <textarea id="desc" name="desc" maxlength="1000" placeholder="In the novella Animal Farm (1945) by George Orwell.." autocomplete="off" style="height:200px" required></textarea>
         </div>
     </div>
     <br>

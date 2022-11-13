@@ -4,57 +4,60 @@
 
 {% block content%} <!-- prints the content inside of it -->
 <body class="lend">
-<div class="container">
-    <h1 style="color: rgb(235, 228, 228);">Edit a Book</h1>
-    <form method="POST">
-    <div class="row">
-        <div class="col-25"> 
-        <label for="title">Title:</label>
+    <div class="container">
+        <h1 style="color: rgb(235, 228, 228);">Edit a Book</h1>
+        <form method="POST">
+        <div class="row">
+            <div class="col-25"> 
+            <label for="title">Title:</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="title" name="title" placeholder="Input a new title.." value="{{ book.title }}" autocomplete="off" required>
+            </div>
         </div>
-        <div class="col-75">
-        <input type="text" id="title" name="title" placeholder="Input a new title.." value="{{ book.title }}">
+        <div class="row"> <!-- row is each line: label and input -->
+            <div class="col-25"> <!-- col-25 is the label -->
+            <label for="author">Author:</label>
+            </div>
+            <div class="col-75">  <!-- col-75 is the input -->
+            <input type="text" id="author" name="author" placeholder="Input a new author.." value="{{ book.author }}" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="row"> <!-- row is each line: label and input -->
+            <div class="col-25"> <!-- col-25 is the label -->
+            <label for="dop">Date Published:</label>
+            </div>
+            <div class="col-75">  <!-- col-75 is the input -->
+            <input type="text" id="dop" name="dop" placeholder="Input a new date.." value="{{ book.dop }}" autocomplete="off" required>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-25">
+            <label for="isbn">ISBN:</label>
+            </div>
+            <div class="col-75"> 
+            <input type="text" id="isbn" name="isbn" maxlength="13" placeholder="Input a new ISBN.." value="{{ book.isbn }}"  autocomplete="off" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="desc">Description (MAX 1000 CHARACTERS):</label>
+            </div>
+            <div class="col-75">
+            <textarea id="desc" name="desc" maxlength="1000" placeholder="Input a new description.." style="height:200px"  autocomplete="off" required>{{ book.desc }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+        </form>
+        <div class="row">
+            <a href="{{url_for('views.delete',book_id=book.id)}}">
+                <button type="delete" value="Delete">Want to delete this book?</button>
+            </a>
         </div>
     </div>
-    <div class="row"> <!-- row is each line: label and input -->
-        <div class="col-25"> <!-- col-25 is the label -->
-        <label for="author">Author:</label>
-        </div>
-        <div class="col-75">  <!-- col-75 is the input -->
-        <input type="text" id="author" name="author" placeholder="Input a new author.." value="{{ book.author }}">
-        </div>
-    </div>
-    <div class="row"> <!-- row is each line: label and input -->
-        <div class="col-25"> <!-- col-25 is the label -->
-        <label for="dop">Date Published:</label>
-        </div>
-        <div class="col-75">  <!-- col-75 is the input -->
-        <input type="text" id="dop" name="dop" placeholder="Input a new date.." value="{{ book.dop }}">
-        </div>
-    </div>
-    <div class="row"> 
-        <div class="col-25">
-        <label for="isbn">ISBN:</label>
-        </div>
-        <div class="col-75"> 
-        <input type="text" id="isbn" name="isbn" maxlength="13" placeholder="Input a new ISBN.." value="{{ book.isbn }}">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-        <label for="desc">Description (MAX 300 WORDS):</label>
-        </div>
-        <div class="col-75">
-        <textarea id="desc" name="desc" maxlength="300" placeholder="Input a new description.." style="height:200px">{{ book.desc }}</textarea>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <input type="submit" value="Submit">
-        <input type="delete" value="Delete">
-    </div>
-    
-    </form>
-</div>
 </body>
 
 {% endblock %}

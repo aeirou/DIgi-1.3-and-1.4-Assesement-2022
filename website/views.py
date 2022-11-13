@@ -1,6 +1,5 @@
 #the routes - where the visitor can go into
 from flask import Blueprint, render_template, redirect, request, url_for, flash
-from sqlalchemy import desc
 from . import db
 from .models import Book, Borrowed_Books, Borrower
 
@@ -31,7 +30,7 @@ def lend():
         db.session.commit()
         return redirect(url_for('views.books')) #redirects to the book page
 
-    return render_template('lend.html')
+    return render_template('lend.html', book=book)
 
 @views.route('/search/<path:searchterm>')
 def search(searchterm):
@@ -39,7 +38,7 @@ def search(searchterm):
 
   search = Book.query.filter((Book.id.like(term)) | (Book.title.like(term)) | (Book.author.like(term)) | (Book.dop.like(term)) |(Book.isbn.like(term))).all()
   
-  return render_template('search.html', results=search, searchterm=searchterm)
+  return render_template('search.html', results=search, searchterm=searchterm ) 
 
 @views.route('/books')
 def books():
@@ -48,7 +47,8 @@ def books():
 
 @views.route('/borrow_book/<path:booktitle>' ,  methods=['GET', 'POST'])
 def borrow_book(booktitle):
-  title = "%{}%".format(booktitle)
+  title = "{}".format(booktitle)
+  
 
   if request.method == 'POST':
       fname = request.form.get('fname')
@@ -71,28 +71,19 @@ def borrow_book(booktitle):
 @views.route('/delete/<int:book_id>', methods=['GET', 'POST'])
 def delete(book_id):
   book = Book.query.get_or_404(book_id)
-
+  error = None
   if request.method == 'POST':
-      book = Book.query.filter_by(id=Book.id).first()
+    delete = request.form.get('delete')
+
+    if delete != 'DELETE':
+      flash("Please check your spelling.")
+    else:
+      flash('You have successfully deleted the book!')
       db.session.delete(book)
       db.session.commit()
-
-      # if len(id) == 0:
-      #   if len(title) > 150:
-      #     flash('Title exceeds character limit!', category='error')
-      #   elif len(title) < 2:
-      #     flash('Title must be greater than 2 characters!', category='error')
-      #   elif len(author) < 3:
-      #     flash('Author must be greater than 3 characters!', category='error')
-      #   elif len(author) > 256:
-      #     flash('Author exceeds character limit!', category='error')
-      #   elif title == book.title and author == book.author:
-      #     flash('Please edit to continue!', category='error')
-
-
       return redirect(url_for('views.books')) #redirects to the book page
 
-  return render_template('delete.html')
+  return render_template('delete.html', book=book, error=error)
 
 @views.route('/edit/<int:book_id>', methods=['GET', 'POST'])
 def edit(book_id):
