@@ -30,7 +30,7 @@ def lend():
         db.session.commit()
         return redirect(url_for('views.books')) #redirects to the book page
 
-    return render_template('lend.html', book=book)
+    return render_template('lend.html')
 
 @views.route('/search/<path:searchterm>')
 def search(searchterm):
