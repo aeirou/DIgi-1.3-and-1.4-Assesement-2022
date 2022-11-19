@@ -14,13 +14,12 @@
     <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
                 <div class="single_books"> <!-- #individual books -->
-                    <a href="{{url_for('views.borrow_book', booktitle=book.title)}}">
+                    <a href="{{url_for('views.borrow_book', book_id=book.id)}}">
                         <h3 class="id">{{book.id}}</h3>
                         <h3 class="label">{{book.title}}</h3>
                         <h4 class="label">{{book.author}}</h4>
                         <h4 class="label">{{book.dop}}</h4>
                         <h4 class="label">{{book.isbn}}</h4>
-                        <h5 class="desc">{{book.desc}}</h5>
                     </a>
                     <a href="{{url_for('views.edit',book_id=book.id)}}">
                         <sub>Edit</sub>

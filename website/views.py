@@ -14,7 +14,7 @@ def home():
 
     return redirect(url_for('views.search', searchterm=term)) #redirects them to the page to see what they searched for
 
-  return render_template('home.html' , books=books)
+  return render_template('home.html' , books=books, )
 
 @views.route('/lend', methods=['GET', 'POST'])
 def lend():
@@ -29,7 +29,7 @@ def lend():
         db.session.add(book)
         db.session.commit()
         return redirect(url_for('views.books')) #redirects to the book page
-
+      
     return render_template('lend.html')
 
 @views.route('/search/<path:searchterm>')
@@ -45,10 +45,10 @@ def books():
     books = Book.query.limit(4).all() #orders the books by its title (alphabetical)
     return render_template('books.html', books=books)
 
-@views.route('/borrow_book/<path:booktitle>' ,  methods=['GET', 'POST'])
-def borrow_book(booktitle):
-  title = "{}".format(booktitle)
-  
+@views.route('/borrow_book/<path:book_id>' ,  methods=['GET', 'POST'])
+def borrow_book(book_id):
+  book = Book.query.get(book_id)
+  books = Book.query.limit(4).all()
 
   if request.method == 'POST':
       fname = request.form.get('fname')
@@ -57,8 +57,14 @@ def borrow_book(booktitle):
       ph_number = request.form.get('phn_num')
 
       borrower = Borrower(fname=fname, lname=lname, email=email, ph_number=ph_number)
-      db.session.add(borrower)
-      db.session.commit()
+
+      if fname and lname and email and ph_number == fname and lname and email and ph_number:
+        flash("This person has already borrowed this book.")
+      else:
+        flash('You have successfully borrowed a book! Please reload the page.')
+        db.session.add(borrower)
+        db.session.commit()
+        return redirect(url_for('views.books'))
 
   # list = db.session.query(Borrowed_Books, Book)\
   #   .filter(Borrowed_Books.id_borrower == borrower.id)\
@@ -66,7 +72,7 @@ def borrow_book(booktitle):
   #   .add_columns(Book.id, Book.title, Book.author)\
   #   .filter(Book.id == Borrowed_Books.id_book).all()
 
-  return render_template('borrow_book.html', title=title)
+  return render_template('borrow_book.html', book=book, books=books)
 
 @views.route('/delete/<int:book_id>', methods=['GET', 'POST'])
 def delete(book_id):
@@ -78,7 +84,7 @@ def delete(book_id):
     if delete != 'DELETE':
       flash("Please check your spelling.")
     else:
-      flash('You have successfully deleted the book!')
+      flash('You have successfully deleted the book! Please reload the page.')
       db.session.delete(book)
       db.session.commit()
       return redirect(url_for('views.books')) #redirects to the book page

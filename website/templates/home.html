@@ -5,8 +5,6 @@
 {% block content%} <!-- prints the content inside of it -->
 
 <body class="homebody">
-
-
 <div class="frontpage">
     <div class="text">
         <a class="mainheading" href="/books">
@@ -21,13 +19,12 @@
     <div class="books"> <!-- #the box of the books -->
         {%for book in books%}
         <div class="single_books"> <!-- #individual books -->
-            <a href="{{url_for('views.borrow_book', booktitle=book.title)}}">
+            <a href="{{url_for('views.borrow_book', booktitle=book.title, book_id=book.id)}}">
                 <h3 class="id">{{book.id}}</h3>
-                <h2 class="label">{{book.title}}</h2>
-                <h3 class="label">{{book.author}}</h3>
-                <h3 class="label">{{book.dop}}</h3>
-                <h3 class="label">{{book.isbn}}</h3>
-                <!-- <h4 class="desc">{{book.desc}}</h4> -->
+                <h3 class="label">{{book.title}}</h3>
+                <h4 class="label">{{book.author}}</h4>
+                <h4 class="label">{{book.dop}}</h4>
+                <h4 class="label">{{book.isbn}}</h4>
                 <a href="{{url_for('views.edit', book_id=book.id)}}">
                     <sub>Edit</sub>
                 </a>

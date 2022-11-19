@@ -4,6 +4,54 @@ body {
   margin: 0;
   background-color: #004759;
 }
+/* --------------------nav-------------------- */
+.navbar {  
+  overflow: hidden;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%; 
+  border-radius: 2px 2px 2px;
+  display: inline-block;
+
+}
+.navbar a {
+  color: rgb(206, 202, 202);
+  font-size: 15px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#nav.active{
+  background-color: #127189;
+}
+.logo {
+  float:left;
+}
+.nav_left {
+  margin-left: 10%;
+  
+}
+.nav_right {
+  margin-right: 10%;
+}
+.nav_left a{
+  float: left;
+  display: block;
+  margin-right:2%;
+  margin-left: 0.5%;
+  margin-top: 3.3%;
+  text-decoration: none;
+}
+.nav_right a{
+  float: right;
+  display: block;
+  margin-right:2%;
+  margin-left: 2%;
+  margin-top: 3.3%;
+  text-decoration: none;
+}
+/* --------------------nav-------------------- */
+
 /* --------------------frontpage-------------------- */
 .frontpage {
   background-image: linear-gradient(rgba(4,9,5,0.7), rgba(4,9,5,0.7)),url('/static/img/frontpage.jpg');
@@ -85,53 +133,6 @@ input[type=search] {
 }
 /* --------------------search-------------------- */
 
-/* --------------------nav-------------------- */
-.navbar {  
-  overflow: hidden;
-  background-color: transparent;
-  position: fixed;
-  top: 0;
-  width: 100%; 
-  border-radius: 2px 2px 2px;
-  display: inline-block;
-}
-.navbar a {
-  color: rgb(206, 202, 202);
-  font-size: 15px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-#nav.active{
-  background-color: #127189;
-}
-.logo {
-  float:left;
-}
-.nav_left {
-  margin-left: 10%;
-  
-}
-.nav_right {
-  margin-right: 10%;
-}
-.nav_left a{
-  float: left;
-  display: block;
-  margin-right:2%;
-  margin-left: 0.5%;
-  margin-top: 3.3%;
-  text-decoration: none;
-}
-.nav_right a{
-  float: right;
-  display: block;
-  margin-right:2%;
-  margin-left: 2%;
-  margin-top: 3.3%;
-  text-decoration: none;
-}
-/* --------------------nav-------------------- */
-
 /* --------------------/books-------------------- */ 
 .bookbody {
   background-color: #004759;
@@ -159,7 +160,7 @@ input[type=search] {
   text-decoration: none;
 }
 .single_books  {
-  padding: 2%;
+  padding: 3%;
   max-width: 17%;
   max-height: 1000px;
   background-color: white;
@@ -181,22 +182,6 @@ input[type=search] {
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  line-height: 20px;     /* fallback */
-  max-height: 60px;      /* fallback */
-  -webkit-line-clamp: 4; /* number of lines to show */
-  -webkit-box-orient: vertical;
-}
-.desc {
-  color: #004759;
-  text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-height: 20px;     /* fallback */
-  max-height: 60px;      /* fallback */
-  -webkit-line-clamp: 4; /* number of lines to show */
-  -webkit-box-orient: vertical;
 }
 .single_books a {
   text-decoration: none;
@@ -206,7 +191,7 @@ input[type=search] {
 /* --------------------lend/edit-------------------- */ 
 .lend {
   background-image: linear-gradient(rgba(4,9,5,0.7), rgba(4,9,5,0.7)),url(/static/img/booksbackground.jpg);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-position: fixed;
   background-size: cover;
@@ -248,8 +233,9 @@ input[type=submit]:hover {
   border-radius: 4px;
   cursor: pointer;
   float: left;
+  position: absolute;
   text-align: center;
-  position:relative ; bottom:80px; top:2px;
+  position: relative ; bottom:80px; top:2px;
 }
 .row button:hover {
   background-color: #961a1a;
@@ -274,7 +260,6 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -294,17 +279,53 @@ input[type=submit]:hover {
 }
 /* --------------------lend/edit-------------------- */ 
 
-/* --------------------borrow_form-------------------- */ 
-.borrow_form {
-  margin-top: 10%;
+/* --------------------borrow-------------------- */ 
+.container_borrow {
+  border-radius: 5px;
+  background-color: #127189;
+  padding: 20px;
+  margin: 3%;
 }
-
+.details-24{
+  text-align: center;
+  box-shadow: 2px 2px 3px;
+  border-radius: 5px;
+  background-color: #127189;
+  padding: 20px;
+  margin: 3%;
+  margin-top: 10%;
+  display: inline-block;
+}
+.label-24 {
+  text-decoration: none;
+  text-align: left;
+  padding-left: 2%;
+  padding-right: 2%;
+  color: #454545;
+  background-color: rgb(235, 228, 228);
+  padding: 2%;
+  border-radius: 5px;
+}
+.desc-24 {
+  text-decoration: none;
+  text-align: left;
+  color: #454545;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: rgb(235, 228, 228);
+  padding: 2%;
+  border-radius: 5px;
+  line-height: 20px;
+}
 /* --------------------borrow_form-------------------- */ 
 
 /* --------------------delete-------------------- */ 
+html {
+  height: 100%;
+}
 .del {
   background-image: linear-gradient(rgba(4,9,5,0.7), rgba(4,9,5,0.7)),url(/static/img/booksbackground.jpg);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-position: fixed;
   background-size: cover;
@@ -358,11 +379,12 @@ input[type=submit]:hover {
 /* --------------------error-------------------- */ 
 .error {
   position: absolute;
-  background-color: #961a1a;
+  background-color: #12434f;
   color: rgb(235, 228, 228);
   border-radius: 10px;
   text-align: center;
   margin-left: 2%;
+  padding-right: 2%;
 }
 .flashes {
   list-style-type: none;

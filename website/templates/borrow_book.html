@@ -4,66 +4,53 @@
 
 {% block content%} <!-- prints the content inside of it -->
 <body class="lend">
-    <div class="container">
-        {% if books %}<!-- #if theres books in the database, it will print it -->
-    <div class="books"> <!-- #the box of the books -->
-        {%for book in books%}
-                <div class="single_books"> <!-- #individual books -->
-                        <h3 class="id">{{book.id}}</h3>
-                        <h3 class="label">{{book.title}}</h3>
-                        <h4 class="label">{{book.author}}</h4>
-                        <h4 class="label">{{book.dop}}</h4>
-                        <h4 class="label">{{book.isbn}}</h4>
-                        <h5 class="desc">{{book.desc}}</h5>
-                </div>
-    {%endfor%}
+<div class="details-24">
+    <h1 style="color: rgb(235, 228, 228);">Book Details</h1>
+    <h3 class="label-24">{{book.title}}</h3>
+    <h4 class="label-24">{{book.author}}</h4>
+    <h4 class="label-24">{{book.dop}}</h4>
+    <h4 class="label-24">{{book.isbn}}</h4>
+    <h4 class="desc-24">{{book.desc}}</h4>
+</div>
+<div class="container_borrow">
+<h1 style="color: rgb(235, 228, 228);">Borrow the Book</h1>
+<form method="POST">
+<div class="row">
+    <div class="col-25"> 
+    <label for="fname">First Name:</label>
     </div>
+    <div class="col-75">
+    <input type="text" id="fname" name="fname" placeholder="'Aeirone'"required>
     </div>
-{%endif%}
-
-
-    <div class="container">
-        <h1 style="color: rgb(235, 228, 228);">Borrow the Book </h1>
-        <form method="POST">
-        <div class="row">
-            <div class="col-25"> 
-            <label for="fname">First Name:</label>
-            </div>
-            <div class="col-75">
-            <input type="text" id="fname" name="fname" placeholder="'Aeirone'"required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-            <label for="lname">Last Name:</label>
-            </div>
-            <div class="col-75">  
-            <input type="text" id="lname" name="lname" placeholder="'Felipe'"required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-25"> 
-            <label for="email">Email:</label>
-            </div>
-            <div class="col-75">  <!-- col-75 is the input -->
-            <input type="text" id="email" name="email" placeholder="'random@gmail.com'" required>
-            </div>
-        </div>
-        <div class="row"> 
-            <div class="col-25">
-            <label for="phnnumber">Phone Number:</label>
-            </div>
-            <div class="col-75"> 
-            <input type="text" id="phn_num" name="phn_num" maxlength="12" placeholder="+64221936492"required>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <input type="submit" value="Submit">
-        </div>
-        </form>
-
-
-
+</div>
+<div class="row">
+    <div class="col-25">
+    <label for="lname">Last Name:</label>
+    </div>
+    <div class="col-75">  
+    <input type="text" id="lname" name="lname" placeholder="'Felipe'"required>
+    </div>
+</div>
+<div class="row">
+    <div class="col-25"> 
+    <label for="email">Email:</label>
+    </div>
+    <div class="col-75">  <!-- col-75 is the input -->
+<input type="text" id="email" name="email" placeholder="'random@gmail.com'" required>
+    </div>
+</div>
+<div class="row"> 
+    <div class="col-25">
+    <label for="phnnumber">Phone Number:</label>
+    </div>
+    <div class="col-75"> 
+    <input type="text" id="phn_num" name="phn_num" maxlength="12" placeholder="+64221936492"required>
+    </div>
+</div>
+<br>
+<div class="row">
+    <input type="submit" value="Submit">
+</div>
+</form> 
 </body>
 {% endblock %}
